@@ -1,0 +1,52 @@
+{% extends 'base/master.html' %}
+{% block 'title' %} Search !!! {% endblock %}
+{% block 'body' %}
+    <nav class="navbar navbar-light bg-light">
+        <form class="form-inline" action="" method="post">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+
+<!-- message printing -->
+    <div>
+         {% if message %}
+        <ul class="message">
+            {% for k in message %}
+            <li style="color:red;">{{ k }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+
+
+<!-- table accessing the data from the data base -->
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"> owner Name</th>
+      <th scope="col">liscence no</th>
+      <th scope="col">blood group</th>
+      <th scope="col">Bike no</th>
+        <th scope="col">citizenship no</th>
+    </tr>
+  </thead>
+    <tbody>
+    {% if sr %}
+        <tr>
+    {% for k in sr %}
+            <td scope="col">{{k.owner_name}}</td>
+            <td scope="col">{{k.liscence_no}}</td>
+            <td scope="col">{{k.blood_group}}</td>
+            <td scope="col">{{k.bike_no}}</td>
+            <td scope="col">{{k.last_tax_paid}}</td>
+        </tr>
+ {% endfor %}
+{% endif %}
+    </tbody>
+</table>
+
+{% endblock %}
