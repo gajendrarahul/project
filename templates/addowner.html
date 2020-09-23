@@ -13,10 +13,10 @@
     </div>
 
     <!-- Default form register -->
-    <form class="text-center border border-light p-5" action="{% url 'home' %}" method="POST">
+    <form class="text-center border border-light p-5" method="POST" action="{% url 'add_owner' %}">
          {% csrf_token %}
         <input type="text" name="ownername" placeholder="Enter the name" class="form-control">
-        <input type="number" name="bikenumber" placeholder="Enter bike no" class="form-control">
+        <input type="text" name="bikenumber" placeholder="Enter bike no" class="form-control">
         <input type="number" name="licencenumber" placeholder="Enter licence no" class="form-control">
         <input type="text" name="bloodgroup" placeholder="Enter the blood group" class="form-control">
         <input type="date" name="lasttaxpaid" placeholder="Enter the date" class="form-control">

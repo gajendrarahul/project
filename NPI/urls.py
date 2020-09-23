@@ -22,5 +22,6 @@ urlpatterns = [
     # path('owner/', include('owner.urls')),
     path('', views.Home, name='home'),
     path('search/', views.search, name='search'),
+    path('add-owner-form,', views.Form, name='form'),
     path('add-owner/', views.AddOwner , name='add_owner'),
 ]
